@@ -1,7 +1,8 @@
-import { Box, Paper, Input, Container } from '@mui/material';
+import { Box, Paper, Input, Container, Button } from '@mui/material';
 import { useSelector } from 'react-redux'
 import { makeStyles } from '@mui/styles';
 import { useState } from 'react'
+import { removeData } from '../redux/slices/myPokemon';
 
 const useStyles = makeStyles(() => ({
     box: {
@@ -53,6 +54,7 @@ function MyListPokemon() {
                     <Paper elevation={3} className={classes.paper} key={i}>
                         <img src={sprites.front_default} alt={name} />
                         <p>{nickName || name}</p>
+                        <Button variant='outlined' onClick={() => removeData(id)}>Release</Button>
                     </Paper>
                 ))}
             </Box>
